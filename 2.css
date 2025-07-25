@@ -1,0 +1,128 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f7f3ed; /* สีพื้นหลังตามภาพ */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px; /* กำหนดความกว้างสูงสุดของเนื้อหา */
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 40px 20px;
+  text-align: center;
+  overflow: hidden; /* ป้องกันการ์ดที่ล้นออกมา */
+}
+
+.header {
+  margin-bottom: 40px;
+  position: relative;
+  padding-top: 20px; /* เพิ่ม padding เพื่อให้มีที่สำหรับไอคอน */
+}
+
+.header::before {
+  content: ""; /* ไอคอนไม้พาย/ตะหลิว */
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: 50px; /* ขนาดไอคอน */
+  height: 50px;
+  background-image: url("utensil-icon.png"); /* เปลี่ยนเป็น path ของไอคอนของคุณ */
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.3; /* ทำให้จางลงเหมือนในภาพ */
+}
+
+.section-title {
+  font-size: 2.5em;
+  color: #cb7751; /* สีส้มตามภาพ */
+  margin-bottom: 5px;
+  letter-spacing: 2px;
+}
+
+.section-subtitle {
+  font-size: 1.5em;
+  color: #333;
+  margin-top: 0;
+  letter-spacing: 1px;
+}
+
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(250px, 1fr)
+  ); /* ปรับขนาดคอลัมน์อัตโนมัติ */
+  gap: 20px; /* ระยะห่างระหว่างการ์ด */
+  justify-content: center; /* จัดให้อยู่ตรงกลาง */
+  padding: 0 20px; /* เพิ่ม padding ด้านข้าง */
+}
+
+.recipe-card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  cursor: pointer; /* แสดงว่าคลิกได้ */
+}
+
+.recipe-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px; /* ทำให้ขอบรูปภาพโค้งมน */
+}
+
+/* Effect สำหรับ Hover */
+.recipe-card:hover {
+  transform: translateY(-5px); /* เลื่อนขึ้นเล็กน้อย */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* เงาเข้มขึ้น */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header::before {
+    left: 10px;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .section-title {
+    font-size: 2em;
+  }
+
+  .section-subtitle {
+    font-size: 1.2em;
+  }
+
+  .recipes-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 30px 10px;
+  }
+
+  .section-title {
+    font-size: 1.8em;
+  }
+
+  .section-subtitle {
+    font-size: 1em;
+  }
+
+  .recipes-grid {
+    grid-template-columns: 1fr; /* แสดงทีละ 1 คอลัมน์บนมือถือ */
+  }
+}

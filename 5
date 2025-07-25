@@ -1,0 +1,6 @@
+5.จากตาราง Customer และตาราง Order ให้เขียน Query เชื่อมข้อมูล 2 ตารางเข้าด้วยกัน
+โดยต้องแสดงทุก Record ที่อยู่ใยู่นตาราง Customer
+answer. SELECT Customer.Id, Customer.Name, Customer.Email, Customer.Countrycode, Customer.Budget, Customer.Used
+        FROM Customer 
+        JOIN Order ON Order.customerId = Customer.Id
+
